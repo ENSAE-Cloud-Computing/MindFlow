@@ -122,14 +122,14 @@ socket.on('response_back', function(data) {
         liveChart.data.datasets[0].label = data.emotion;
         liveChart.update('quiet');
 
-        document.getElementById("liveNeutral").innerHTML = Math.round((data.probs[0] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveHappy").innerHTML = Math.round((data.probs[1] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveSad").innerHTML = Math.round((data.probs[2] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveSurprise").innerHTML = Math.round((data.probs[3] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveFear").innerHTML = Math.round((data.probs[4] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveDisgust").innerHTML = Math.round((data.probs[5] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveAnger").innerHTML = Math.round((data.probs[6] + Number.EPSILON) * 10000)/100 ;
-        document.getElementById("liveContempt").innerHTML = Math.round((data.probs[7] + Number.EPSILON) * 10000)/100 ;
+        document.getElementById("liveNeutral").innerHTML = String(Math.round((data.probs[0] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveHappy").innerHTML = String(Math.round((data.probs[1] + Number.EPSILON) * 10000)/100) + '%' ;
+        document.getElementById("liveSad").innerHTML = String(Math.round((data.probs[2] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveSurprise").innerHTML = String(Math.round((data.probs[3] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveFear").innerHTML = String(Math.round((data.probs[4] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveDisgust").innerHTML = String(Math.round((data.probs[5] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveAnger").innerHTML = String(Math.round((data.probs[6] + Number.EPSILON) * 10000)/100) + '%';
+        document.getElementById("liveContempt").innerHTML = String(Math.round((data.probs[7] + Number.EPSILON) * 10000)/100) + '%';
 
 
         radarChart.data.datasets[0].data = data.probs_avg;

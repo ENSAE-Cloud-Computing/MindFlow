@@ -65,7 +65,7 @@ async def image(header, init_msg):
 
 
         
-    print('OK')
+    print('Processig Webcam Stream')
     print(init_msg)
 
     b64_src = "data:image/jpeg;base64"
@@ -138,7 +138,7 @@ async def image(header, init_msg):
                 r, frame = cv2.imencode('.jpeg', frame)
                 stringData = base64.b64encode(frame).decode('utf-8')
                 stringData = b64_src +','+stringData
-                print('Frame Treated Succesfully')
+                #print('Frame Treated Succesfully')
                 #emit the frame back
                 probs_avg = list(df_emotions[emotions].mean() *100)
                 emotion_spectrum = list(df_emotions[['positive','neutral','negative']].mean()*100)
@@ -149,7 +149,7 @@ async def image(header, init_msg):
                 
                 await sio.emit('response_back', data)
 
-                print('Processed Frame Emited Succesfully')
+                #print('Processed Frame Emited Succesfully')
     
             except:
 
@@ -161,7 +161,7 @@ async def image(header, init_msg):
                 'emotion_spectrum':None}
 
                 await sio.emit('response_back', data)
-                print('Vanilla Frame Emited Succesfully')
+                #print('Vanilla Frame Emited Succesfully')
 
 
             
