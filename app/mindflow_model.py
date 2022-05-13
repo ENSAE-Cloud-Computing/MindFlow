@@ -5,8 +5,6 @@ import torch.nn.init as init
 from torchvision import transforms, models
 from PIL import Image as Image_p
 
-
-
 class DAN(nn.Module):
     def __init__(self, num_class=7,num_head=4, pretrained=True):
         super(DAN, self).__init__()

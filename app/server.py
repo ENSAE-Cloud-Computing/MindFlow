@@ -33,9 +33,6 @@ from mindflow_model import Model
 # Parametre définissant le rognage effectué sur les visages préselectionnés, permettant de meilleurs performances de detection
 #crop_param = (20, 40)
 
-# Paramètre de chemin d'accès utilisé pour afficher l'émoji correspondant à l'émotion prédite sur le visage : 
-#emoji_path = 'static/assets/emoji'
-
 
 path = Path(__file__).parent
 

@@ -3,16 +3,16 @@ var socket = io({transports: ["polling"],
                 forceNew: true});
 
 
-
+// data visualization components
 
 var ctxLive = document.getElementById('liveChart');
 const config_live = {
-  type: 'line',             // 'line', 'bar', 'bubble' and 'scatter' types are supported
+  type: 'line',             
   data: {
     datasets: [{  
         label:'',  
         data: [],
-        borderColor: 'rgb(222, 49, 99)',              // empty at the beginning
+        borderColor: 'rgb(222, 49, 99)',  
     },]
   },
   options: {
@@ -46,7 +46,7 @@ const config_live = {
 var labels = ['neutral', 'happy', 'sad', 'surprise', 'fear', 'disgust', 'anger', 'contempt'];
 var ctxRadar = document.getElementById('radarChart');
 const config_radar = {
-  type: 'radar',             // 'line', 'bar', 'bubble' and 'scatter' types are supported
+  type: 'radar',       
   data: {
     labels:labels,
     datasets: [{  
@@ -54,7 +54,7 @@ const config_radar = {
         data: [],
         fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',             // empty at the beginning
+        borderColor: 'rgb(255, 99, 132)',             
     },]
   }
 };
@@ -62,7 +62,7 @@ const config_radar = {
 var spectrum = ['positive','neutral','negative'];
 var ctxDoughnut = document.getElementById('doughnutChart');
 const config_doughnut = {
-  type: 'doughnut',             // 'line', 'bar', 'bubble' and 'scatter' types are supported
+  type: 'doughnut',     
   data: {
     labels:spectrum,
     datasets: [{  
@@ -74,7 +74,7 @@ const config_doughnut = {
             'rgb(41, 128, 185)',
             'rgb(255, 51, 106)'
     ],
-        borderColor: 'rgb(255, 99, 132)',             // empty at the beginning
+        borderColor: 'rgb(255, 99, 132)',           
     },]
   }
 };       
@@ -85,13 +85,20 @@ var liveChart = new Chart(ctxLive, config_live);
 var radarChart = new Chart(ctxRadar, config_radar);
 var doughnutChart = new Chart(ctxDoughnut, config_doughnut);
 
+
+// checking connection with backend
+
 socket.on('connect', function() {
     console.log("Connected...!", socket.connected)
 });
 
 
+
 socket.emit('frame', "init");
 console.log('init ok');
+
+
+// handling video stream from backend + feeding data viz components
 
 socket.on('response_back', function(data) {
 
@@ -133,13 +140,4 @@ socket.on('response_back', function(data) {
 
 
    };
-
-    
-
-
-   
-
-
 });
-
-
