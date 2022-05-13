@@ -70,7 +70,6 @@ Les distributions sont différentes ( problème des datasets crowdsourcé/scrapp
 2. En se plaçant à la racine du dépôt, installer les dépendances via la commande : `pip install -r requirements.txt`
 3. Executer la commande suivante à la racine du dépôt : `python app/server.py serve`
 
-NB*
-*Possibilité d'utiliser directement le Dockerfile fournit afin de creer l'image docker du projet et la lancer.Cependant, ayant utilisé un smartphone comme webcam (via Iriun Webcam), nous n'avons pu completement valider cette solution sur notre configuration. Après de nombreux tweaks dans les paramètres d'éxécution de l'image, la VM n'arrive pas à acceder à la camera du smartphone.
-Une configuration plus classique dotée d'une webcam native et integrée devrait être fonctionelle. La solution presentée ci-dessus nous a donc semblé la plus à même de se conformer à tous les cas tout en restant relativement simple.*
+
+*NB : Il y a la possibilité d'utiliser directement le dockerfile fournit afin de creer l'image docker du projet et la lancer.Cependant, ayant utilisé un smartphone comme webcam (via Iriun Webcam), nous n'avons pu completement valider cette solution sur notre configuration. Après de nombreux tweaks dans les paramètres d'éxécution de l'image, la VM n'arrive pas à acceder à la camera du smartphone. Une configuration plus classique dotée d'une webcam native et integrée devrait être fonctionelle. La solution presentée ci-dessus nous a donc semblé la plus à même de se conformer à tous les cas tout en restant relativement simple.*
 
